@@ -6,6 +6,3 @@
     </div>
 </div>
 <br/>
-<div class='container'>
-<div class='row'>
-<h2 class='text-light text-center'>Data</h2>

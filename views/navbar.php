@@ -12,13 +12,13 @@
                             <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Features</a>
+                            <a class="nav-link text-light" href="nesto.php">Nesto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Pricing</a>
+                            <a class="nav-link text-light" href="scraperr.php">Scraper</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="test.php">Testing</a>
+                            <a class="nav-link text-light" href="scraper.php">Testing</a>
                         </li>
                     </ul>
                 </div>

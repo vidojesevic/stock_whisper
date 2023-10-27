@@ -13,6 +13,7 @@ switch ($page) {
     require_once "views/navbar.php";
     require_once "views/cover.php";
     require_once "views/data.php";
+    require_once "views/about.php";
     require_once "views/footer.php";
     break;
     // http_response_code(404);
