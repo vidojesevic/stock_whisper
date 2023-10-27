@@ -1,0 +1,7 @@
+.env
+index.php.back
+notes.norg
+data/
+fake_data.php
+scraper.php
+test.php
