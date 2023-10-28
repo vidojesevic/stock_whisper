@@ -9,16 +9,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link text-light" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="nesto.php">Nesto</a>
+                            <a class="nav-link text-light" href="#data">Company</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="scraperr.php">Scraper</a>
+                            <a class="nav-link text-light" href="utilities/monthly_scraper.php">Monthly</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="scraper.php">Testing</a>
+                            <a class="nav-link text-light" href="#about">About</a>
                         </li>
                     </ul>
                 </div>

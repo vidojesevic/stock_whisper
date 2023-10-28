@@ -23,8 +23,8 @@ if (!isset($_POST['comp']) && empty($_POST['comp'])) {
     $comp = $_POST['comp'];
 }
 
-$str = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' . $comp . '&interval=' . $time . 'min&apikey=' . $key . "'";
-// $str = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' . $comp . '&interval=5min&apikey=demo';
+// $str = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' . $comp . '&interval=' . $time . 'min&apikey=' . $key . "'";
+$str = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' . $comp . '&interval=5min&apikey=demo';
 
 $json = file_get_contents($str);
 

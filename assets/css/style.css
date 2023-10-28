@@ -4,13 +4,19 @@ a {
 a:hover {
     opacity: 0.9;
 }
+p {
+    font-size: 1.4em;
+}
 .cover {
-    min-height: 16em; 
+    min-height: 14em; 
     background-image: url('../images/pexels-pixabay-210607.jpg');
     background-size: cover;
 }
 .cover h1 {
     text-shadow: 3px 3px 0px rgba(255,255,255,0.5);
+}
+.searches {
+    min-height: 10em;
 }
 .dataTerminal {
     max-height: 23em;
@@ -22,6 +28,7 @@ table {
     border-radius: 1em;
     display: flex;
     overflow: auto;
+    font-size: 1.4em;
 }
 thead {
     background: #212529;
@@ -55,4 +62,10 @@ table::-webkit-scrollbar-thumb {
 }
 table::-webkit-scrollbar-thumb:active {
     background: #6C757D;
+}
+.search-comp::placeholder {
+    color: #FFFFFF;
+}
+.filters {
+    display: block;
 }

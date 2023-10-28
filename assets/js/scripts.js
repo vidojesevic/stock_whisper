@@ -21,8 +21,8 @@ function logoAnimate() {
 }
 
 function displayGraph(data) {
-    const timeSeries = data['Time Series (30min)'];
-    // const timeSeries = data['Time Series (5min)']; for testing
+    // const timeSeries = data['Time Series (30min)'];
+    const timeSeries = data['Time Series (5min)']; // for testing
 
     const table = $('<table>').appendTo('.dataTerminal');
     const thead = $('<thead>').appendTo(table);
@@ -38,7 +38,7 @@ function displayGraph(data) {
     for (const date in timeSeries) {
         const rowData = timeSeries[date];
         const row = $('<tr>').appendTo(tbody);
-        $('<td>').text(date.substring(2,16)).appendTo(row).addClass('text-white').css('font-size','0.9em');
+        $('<td>').text(date.substring(2,16)).appendTo(row).addClass('text-white');
         $('<td>').text(rowData['1. open']).appendTo(row).css('font-size','1.1em');
         $('<td>').text(rowData['2. high']).appendTo(row).css('font-size','1.1em');
         $('<td>').text(rowData['3. low']).appendTo(row).css('font-size','1.1em');
@@ -47,7 +47,8 @@ function displayGraph(data) {
 }
 
 function makeChart(data) {
-    const timeSeries = data['Time Series (30min)'];
+    const timeSeries = data['Time Series (5min)'];
+    // const timeSeries = data['Time Series (30min)'];
     const volumes = [];
     const labels = [];
     for (const time in timeSeries) {
@@ -70,13 +71,11 @@ function makeChart(data) {
             }
         }
     );
-    console.log(Chart);
 }
 
 function getData() {
     ajaxCallBack("utilities/scraper.php", 
         function(data) {
-            console.log(data);
             displayGraph(data);
             makeChart(data);
         }, 
