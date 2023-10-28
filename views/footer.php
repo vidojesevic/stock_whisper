@@ -1,8 +1,10 @@
     </div>
 </div>
 <br/>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src='assets/js/scripts.js'></script>
+    <!-- <script src="/srv/http/web_scraper/node_modules/chart.js/dist/chart.umd.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src='assets/js/scripts.js'></script>
 <footer class="bg-dark text-center text-lg-start">
     <div class="text-center p-3">
         <span class='fw-bold text-light'>&copy; 2023 Copyright: </span>

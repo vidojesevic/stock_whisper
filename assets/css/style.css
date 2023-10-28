@@ -20,24 +20,39 @@ table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 1em;
+    display: flex;
+    overflow: auto;
 }
 thead {
     background: #212529;
-    z-index: 1000;
     position: sticky;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    z-index: 1000;
 }
-.dataTerminal::-webkit-scrollbar {
+tbody {
+    display: flex;
+    flex-direction: row;
+}
+tr {
+    display: flex;
+    flex-direction: column;
+}
+td {
+    white-space: nowrap;
+    text-align: center;
+    border-right: 1px solid #FFFFFF;
+}
+table::-webkit-scrollbar {
     background: #212529; /* Set the color of the thumb on hover */
     border-radius: 0.4em;
 }
-.dataTerminal::-webkit-scrollbar-thumb {
+table::-webkit-scrollbar-thumb {
     background: #FFFFFF;
     border-radius: 0.4em;
 }
-.dataTerminal::-webkit-scrollbar-thumb:active {
+table::-webkit-scrollbar-thumb:active {
     background: #6C757D;
-}
-.dataTerminal tr {
-    position: sticky;
 }

@@ -21,7 +21,8 @@ function logoAnimate() {
 }
 
 function displayGraph(data) {
-    const timeSeries = data['Time Series (5min)'];
+    const timeSeries = data['Time Series (30min)'];
+    // const timeSeries = data['Time Series (5min)']; for testing
 
     const table = $('<table>').appendTo('.dataTerminal');
     const thead = $('<thead>').appendTo(table);
@@ -31,21 +32,45 @@ function displayGraph(data) {
     $('<th>').text('High').appendTo(headerRow).addClass('text-white');
     $('<th>').text('Low').appendTo(headerRow).addClass('text-white');
     $('<th>').text('Close').appendTo(headerRow).addClass('text-white');
-    $('<th>').text('Volume').appendTo(headerRow).addClass('text-white');
-
-    // $('<br/>').appendTo(table);
 
     const tbody = $('<tbody>').appendTo(table);
+
     for (const date in timeSeries) {
         const rowData = timeSeries[date];
         const row = $('<tr>').appendTo(tbody);
-        $('<td>').text(date).appendTo(row);
-        $('<td>').text(rowData['1. open']).appendTo(row);
-        $('<td>').text(rowData['2. high']).appendTo(row);
-        $('<td>').text(rowData['3. low']).appendTo(row);
-        $('<td>').text(rowData['4. close']).appendTo(row);
-        $('<td>').text(rowData['5. volume']).appendTo(row);
+        $('<td>').text(date.substring(2,16)).appendTo(row).addClass('text-white').css('font-size','0.9em');
+        $('<td>').text(rowData['1. open']).appendTo(row).css('font-size','1.1em');
+        $('<td>').text(rowData['2. high']).appendTo(row).css('font-size','1.1em');
+        $('<td>').text(rowData['3. low']).appendTo(row).css('font-size','1.1em');
+        $('<td>').text(rowData['4. close']).appendTo(row).css('font-size','1.1em');
     }
+}
+
+function makeChart(data) {
+    const timeSeries = data['Time Series (30min)'];
+    const volumes = [];
+    const labels = [];
+    for (const time in timeSeries) {
+        const dataPoint = timeSeries[time];
+        labels.push(time);
+        volumes.push(dataPoint['5. volume']);
+    }
+    new Chart(
+        document.getElementById('chart'),
+        {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Volume',
+                        data: volumes
+                    }
+                ]
+            }
+        }
+    );
+    console.log(Chart);
 }
 
 function getData() {
@@ -53,7 +78,8 @@ function getData() {
         function(data) {
             console.log(data);
             displayGraph(data);
-    }, 
+            makeChart(data);
+        }, 
         function(error) {
             console.log("Error " + error);
         });
