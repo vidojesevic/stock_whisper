@@ -7,6 +7,10 @@ a:hover {
 p {
     font-size: 1.4em;
 }
+.navbar {
+    position: sticky;
+    top: 0;
+}
 .cover {
     min-height: 14em; 
     background-image: url('../images/pexels-pixabay-210607.jpg');
@@ -19,16 +23,17 @@ p {
     min-height: 10em;
 }
 .dataTerminal {
-    max-height: 23em;
+    min-height: 14em;
     overflow-y: auto;
 }
 table {
+    padding-top: 0.8em;
     width: 100%;
     border-collapse: collapse;
     border-radius: 1em;
     display: flex;
     overflow: auto;
-    font-size: 1.4em;
+    font-size: 1.3em;
 }
 thead {
     background: #212529;
@@ -68,4 +73,12 @@ table::-webkit-scrollbar-thumb:active {
 }
 .filters {
     display: block;
+    font-size: 1.2em;
+}
+canvas {
+    padding-top: 1em;
+}
+#dropMinutes a:hover {
+    color: #212529!important;
+    background: #FFFFFF;
 }

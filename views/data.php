@@ -14,19 +14,19 @@
             </form>
             <div class="filters bg-dark text-light rounded" id="navbarColor">
                 <ul class="navbar-nav">
-                    <li class="nav-item px-2 dropdown">
+                    <li class="nav-item px-2">
                         <div class='dropdown'>
-                            <a class='nav-link dropdown-toggle' href='#' role='button' id='minutesDropdown' data-bs-toggle='dropdown' aria-expanded='false'>Minutes</a>
-                            <ul class="dropdown-menu" aria-labelledby="minutesDropdown">
-                                <li><a class="dropdown-item" href="#">5</a></li>
-                                <li><a class="dropdown-item" href="#">30</a></li>
-                                <li><a class="dropdown-item" href="#">60</a></li>
+                            <a class='nav-link dropdown-toggle' href='#' role='button' id='minutesDropdown' data-bs-toggle='dropdown' data-bs-target='dropminutes' aria-expanded='false'>Minutes</a>
+                            <ul class="dropdown-menu border-light bg-dark" id='dropminutes' aria-labelledby="minutesDropdown">
+                                <li><a class="dropdown-item text-light" href="#">5</a></li>
+                                <li><a class="dropdown-item text-light" href="#">30</a></li>
+                                <li><a class="dropdown-item text-light" href="#">60</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item px-2"><a class="nav-link" href="#">Men's</a> </li>                
-                    <li class="nav-item px-2"><a class="nav-link" href="#">Home</a> </li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#">Dayly</a> </li>                
                     <li class="nav-item px-2"><a class="nav-link" href="#">Monthly</a> </li>
+                    <li class="nav-item px-2"><a class="nav-link" href="#">Yearly</a> </li>
                 </ul>        
             </div>
         </div>
