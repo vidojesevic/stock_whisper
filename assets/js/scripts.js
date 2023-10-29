@@ -26,6 +26,7 @@ function makeChart(data) {
     // const timeSeries = data['Time Series (30min)'];
     const volumes = [];
     const labels = [];
+    const label = data['2. Symbol'];
     for (const time in timeSeries) {
         const dataPoint = timeSeries[time];
         labels.push(time);
@@ -39,8 +40,9 @@ function makeChart(data) {
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Volume',
-                        data: volumes
+                        label: 'Volumes for ' + label,
+                        data: volumes,
+                        borderColor: '#197941'
                     }
                 ]
             }
@@ -80,16 +82,19 @@ function getGlobals() {
         function(data) {
             const global = data.markets;
             console.log(global);
-            const table = $('<table>').appendTo('#marketData').addClass('bg-dark');
+            const table = $('<table>').appendTo('#marketData').addClass('bg-dark').css('font-size','1em');
+            $('<caption>').text('Global Market').appendTo(table).addClass('text-success fw-bolder text-center').css('caption-side','top');
             const thead = $('<thead>').appendTo(table).addClass('text-white');
-            const headerRow = $('<tr>').appendTo(thead);
+            const headerRow = $('<tr>').appendTo(thead).addClass('fw-bolder');
             $('<th>').text('Market type').appendTo(headerRow).addClass('text-white');
             $('<th>').text('Region').appendTo(headerRow).addClass('text-white');
             $('<th>').text('Primary exchanges').appendTo(headerRow).addClass('text-white');
             $('<th>').text('Open').appendTo(headerRow).addClass('text-white');
             $('<th>').text('Closes').appendTo(headerRow).addClass('text-white');
             $('<th>').text('Notes').appendTo(headerRow).addClass('text-white');
+            // $(headerRow).css('border-bottom','0.2em solid #FFFFFF');
 
+            // $('<hr/>').appendTo(table);
             const tbody = $('<tbody>').appendTo(table);
 
             global.forEach(function(market) {
@@ -100,6 +105,7 @@ function getGlobals() {
                 $('<td>').text(market.local_open).appendTo(row).addClass('text-white');
                 $('<td>').text(market.local_close).appendTo(row).addClass('text-white');
                 $('<td>').text(market.notes).appendTo(row).addClass('text-white');
+                $(row).css('border-top','0.05em solid #FFFFFF');
             });
         },
         function(err) {console.log(err);}

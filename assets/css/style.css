@@ -7,13 +7,14 @@ a:hover {
 p {
     font-size: 1.4em;
 }
-.navbar {
+#navbar {
     position: sticky;
     top: 0;
+    background: #6C757D;
     z-index: 1000;
 }
 .cover {
-    min-height: 14em; 
+    min-height: 15em; 
     background-image: url('../images/pexels-pixabay-210607.jpg');
     background-size: cover;
 }
@@ -23,11 +24,7 @@ p {
 .searches {
     min-height: 10em;
 }
-.dataGlobal table {
-    background: #212529;
-    font-size: 0.8em;
-}
-.dataGlobal th {
+.dataGlobal th, .dataGlobal td {
     white-space: nowrap;
 }
 .dataGlobal td {
@@ -44,7 +41,7 @@ p {
     border-radius: 1em;
     display: flex;
     overflow: auto;
-    /* font-size: 1.3em; */
+    font-size: 1.2em;
 }
 .dataTerminal thead {
     background: #212529;
@@ -53,7 +50,7 @@ p {
     display: flex;
     flex-direction: column;
     left: 0;
-    z-index: 1000;
+    z-index: 900;
 }
 .dataTerminal tbody {
     display: flex;
@@ -91,6 +88,9 @@ canvas {
     padding-top: 1em;
 }
 #dropMinutes a:hover {
-    color: #212529!important;
-    background: #FFFFFF;
+    background: #6C757D;
+}
+.searchTable {
+    display: flex;
+    justify-content: space-between;
 }

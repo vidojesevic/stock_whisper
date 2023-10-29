@@ -12,6 +12,7 @@ switch ($page) {
     // $home->index();
     require_once "views/navbar.php";
     require_once "views/cover.php";
+    require_once "views/global.php";
     require_once "views/data.php";
     require_once "views/about.php";
     require_once "views/footer.php";
