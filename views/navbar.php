@@ -15,7 +15,7 @@
                             <a class="nav-link text-light" href="#data">Company</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="utilities/monthly_scraper.php">Monthly</a>
+                            <a class="nav-link text-light" href="utilities/global_scraper.php">Global</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#about">About</a>

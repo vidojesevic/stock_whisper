@@ -31,3 +31,22 @@ $json = file_get_contents($str);
 $data = json_decode($json,true);
 
 echo $json;
+
+// // daily
+// $json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo');
+// // daily adjasted
+// $json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=IBM&apikey=demo');
+// // time serius weekly
+// $json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=IBM&apikey=demo');
+// // time serius weekly adjasted
+// $json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=IBM&apikey=demo');
+// // monthly
+// $json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=demo');
+// // monthly adjasted
+// $json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey=demo');
+// // quote endpoint
+// $json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo');
+// // search 
+// $json = file_get_contents('https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo');
+// // Globa Market
+// $json = file_get_contents('https://www.alphavantage.co/query?function=MARKET_STATUS&apikey=demo');

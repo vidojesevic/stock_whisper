@@ -1,7 +1,9 @@
 <div id='about' class='container'>
     <div class='row'>
+        <br/>
+        <hr class='text-light'/>
         <div class='col-12'>
-            <br/><hr class='text-light'/><br/>
+            <br/>
             <h2 class='text-white text-center'>About</h2>
             <p class='text-light pt-3 pb-5'>
                 Built with a passion for data and innovation, this web scraper 

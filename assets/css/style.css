@@ -10,6 +10,7 @@ p {
 .navbar {
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 .cover {
     min-height: 14em; 
@@ -22,20 +23,30 @@ p {
 .searches {
     min-height: 10em;
 }
+.dataGlobal table {
+    background: #212529;
+    font-size: 0.8em;
+}
+.dataGlobal th {
+    white-space: nowrap;
+}
+.dataGlobal td {
+    color: #FFFFFF;
+}
 .dataTerminal {
     min-height: 14em;
     overflow-y: auto;
 }
-table {
+.dataTerminal table {
     padding-top: 0.8em;
     width: 100%;
     border-collapse: collapse;
     border-radius: 1em;
     display: flex;
     overflow: auto;
-    font-size: 1.3em;
+    /* font-size: 1.3em; */
 }
-thead {
+.dataTerminal thead {
     background: #212529;
     position: sticky;
     top: 0;
@@ -44,21 +55,22 @@ thead {
     left: 0;
     z-index: 1000;
 }
-tbody {
+.dataTerminal tbody {
     display: flex;
     flex-direction: row;
 }
-tr {
+.dataTerminal tr {
     display: flex;
     flex-direction: column;
 }
-td {
+.dataTerminal td {
     white-space: nowrap;
     text-align: center;
     border-right: 1px solid #FFFFFF;
 }
 table::-webkit-scrollbar {
-    background: #212529; /* Set the color of the thumb on hover */
+    /* background: #212529; */
+    background: #6c757d;
     border-radius: 0.4em;
 }
 table::-webkit-scrollbar-thumb {

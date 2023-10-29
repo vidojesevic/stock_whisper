@@ -1,7 +1,7 @@
 <br/>
 <div id='data' class='container'>
     <div class='row d-flex justify-between'>
-        <h2 class='text-light text-center'>Data</h2>
+        <h2 class='text-light text-center'>Company data</h2>
         <br/><hr class='text-light'/><br/>
         <div class='col-4 searches px-2'>
             <form action='' method='post' class='pb-2'>
@@ -12,7 +12,7 @@
                     </button>
                 </div>
             </form>
-            <div class="filters bg-dark text-light rounded" id="navbarColor">
+            <div class="filters bg-dark text-light border border-light rounded" id="navbarColor">
                 <ul class="navbar-nav">
                     <li class="nav-item px-2">
                         <div class='dropdown'>
@@ -30,7 +30,7 @@
                 </ul>        
             </div>
         </div>
-        <div class='col-8 dataTerminal mb-3 bg-dark text-success rounded'></div>
-        <canvas id='chart' class='col-12 mb-3 bg-dark text-success rounded'></canvas>
+        <div class='col-8 dataTerminal mb-3 bg-dark text-success border rounded'></div>
+        <canvas id='chart' class='col-12 mb-3 bg-dark text-success border rounded'></canvas>
     </div>
 </div>

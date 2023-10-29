@@ -1,6 +1,7 @@
 $(document).ready(function() {
     console.log("From jQuery!");
     logoAnimate();
+    getGlobals();
     getData();
 })
 
@@ -18,6 +19,33 @@ function logoAnimate() {
             span.attr("hidden", true);
         }, 230);
        });
+}
+
+function makeChart(data) {
+    const timeSeries = data['Time Series (5min)'];
+    // const timeSeries = data['Time Series (30min)'];
+    const volumes = [];
+    const labels = [];
+    for (const time in timeSeries) {
+        const dataPoint = timeSeries[time];
+        labels.push(time);
+        volumes.push(dataPoint['5. volume']);
+    }
+    new Chart(
+        document.getElementById('chart'),
+        {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Volume',
+                        data: volumes
+                    }
+                ]
+            }
+        }
+    );
 }
 
 function displayGraph(data) {
@@ -46,30 +74,35 @@ function displayGraph(data) {
     }
 }
 
-function makeChart(data) {
-    const timeSeries = data['Time Series (5min)'];
-    // const timeSeries = data['Time Series (30min)'];
-    const volumes = [];
-    const labels = [];
-    for (const time in timeSeries) {
-        const dataPoint = timeSeries[time];
-        labels.push(time);
-        volumes.push(dataPoint['5. volume']);
-    }
-    new Chart(
-        document.getElementById('chart'),
-        {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Volume',
-                        data: volumes
-                    }
-                ]
-            }
-        }
+function getGlobals() {
+    console.log("Get globals");
+    ajaxCallBack("utilities/global_scraper.php",
+        function(data) {
+            const global = data.markets;
+            console.log(global);
+            const table = $('<table>').appendTo('#marketData').addClass('bg-dark');
+            const thead = $('<thead>').appendTo(table).addClass('text-white');
+            const headerRow = $('<tr>').appendTo(thead);
+            $('<th>').text('Market type').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Region').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Primary exchanges').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Open').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Closes').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Notes').appendTo(headerRow).addClass('text-white');
+
+            const tbody = $('<tbody>').appendTo(table);
+
+            global.forEach(function(market) {
+                const row = $('<tr>').appendTo(tbody);
+                $('<td>').text(market.market_type).appendTo(row).addClass('text-white');
+                $('<td>').text(market.region).appendTo(row).addClass('text-white');
+                $('<td>').text(market.primary_exchanges).appendTo(row).addClass('text-white');
+                $('<td>').text(market.local_open).appendTo(row).addClass('text-white');
+                $('<td>').text(market.local_close).appendTo(row).addClass('text-white');
+                $('<td>').text(market.notes).appendTo(row).addClass('text-white');
+            });
+        },
+        function(err) {console.log(err);}
     );
 }
 
