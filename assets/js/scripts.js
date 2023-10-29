@@ -112,7 +112,7 @@ function getGlobals() {
     );
 }
 
-function displayDaily(path, time) {
+function displayData(path, time) {
     console.log(time)
     ajaxCallBack(path,
         function(data) {
@@ -141,9 +141,40 @@ function displayDaily(path, time) {
                 $('<td>').text("$"+rowData['3. low']).appendTo(row);
                 $('<td>').text("$"+rowData['4. close']).appendTo(row);
             }
+            $('.chart-div').empty();
+            $('<canvas id="chart">').addClass('mb-3 bg-dark text-success border rounder').appendTo('.chart-div');
+            makeChart2(data, time)
         },
         function(err) {
             console.log(err);
+        }
+    );
+}
+
+function makeChart2(data, time) {
+    const timeSeries = data[time];
+    const caption = data['Meta Data']['2. Symbol'];
+    const volumes = [];
+    const labels = [];
+    for (const time in timeSeries) {
+        const dataPoint = timeSeries[time];
+        labels.push(time);
+        volumes.push(dataPoint['5. volume']);
+    }
+    new Chart(
+        document.getElementById('chart'),
+        {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Volumes for ' + caption,
+                        data: volumes,
+                        borderColor: '#197941'
+                    }
+                ]
+            }
         }
     );
 }
@@ -152,19 +183,18 @@ function getTimeType() {
     $('.nav-link').on('click', function() {
         const clicked = $(this).data('time-type');
         const value = $(this).text();
-        displayDaily(clicked, value);
         switch (value) {
             case 'Daily':
                 time = 'Time Series (' + value + ')';
-                displayDaily(clicked, time);
+                displayData(clicked, time);
                 break;
             case 'Weekly':
                 time = value + ' Time Series';
-                displayDaily(clicked, time);
+                displayData(clicked, time);
                 break;
             case 'Monthly':
                 time = value + ' Time Series';
-                displayDaily(clicked, time);
+                displayData(clicked, time);
                 break;
             default:
                 break;

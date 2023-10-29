@@ -34,7 +34,7 @@
         </div>
         <div class='col-lg-8 col-sm-12 dataTerminal mb-3 bg-dark text-success border rounded'></div>
         <!-- </div> -->
-        <div class='col-12 px-0'>
+        <div class='col-12 px-0 chart-div'>
             <canvas id='chart' class='mb-3 bg-dark text-success border rounded'></canvas>
         </div>
     </div>
