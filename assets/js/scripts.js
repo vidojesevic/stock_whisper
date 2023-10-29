@@ -3,6 +3,7 @@ $(document).ready(function() {
     logoAnimate();
     getGlobals();
     getData();
+    getTimeType();
 })
 
 function logoAnimate() {
@@ -54,7 +55,7 @@ function displayGraph(data) {
     // const timeSeries = data['Time Series (30min)'];
     const timeSeries = data['Time Series (5min)']; // for testing
     const caption = data['Meta Data']['2. Symbol'] + " | Last Refreshed: " + data['Meta Data']['3. Last Refreshed'];
-    $('<p>').text("Data for " + caption).addClass('text-light text-center').appendTo('.dataTerminal');
+    $('<p>').text("Data for " + caption).addClass('text-light text-center').css('border-bottom','1px solid #FFF').appendTo('.dataTerminal');
 
     const table = $('<table>').appendTo('.dataTerminal');
     const thead = $('<thead>').appendTo(table);
@@ -83,7 +84,7 @@ function getGlobals() {
     ajaxCallBack("utilities/global_scraper.php",
         function(data) {
             const global = data.markets;
-            console.log(global);
+            // console.log(global);
             const table = $('<table>').appendTo('#marketData').addClass('table table-striped table-dark bg-dark').css('font-size','1em');
             $('<caption>').text('Global Market').appendTo(table).addClass('text-light fw-bolder text-center').css('caption-side','top');
             const thead = $('<thead>').appendTo(table).addClass('text-white');
@@ -105,11 +106,70 @@ function getGlobals() {
                 $('<td>').text(market.local_open).appendTo(row).addClass('text-white');
                 $('<td>').text(market.local_close).appendTo(row).addClass('text-white');
                 $('<td>').text(market.notes).appendTo(row).addClass('text-white');
-                $(row).css('border-top','0.05em solid #FFFFFF');
             });
         },
         function(err) {console.log(err);}
     );
+}
+
+function displayDaily(path, time) {
+    console.log(time)
+    ajaxCallBack(path,
+        function(data) {
+            const timeSeries = data[time];
+            const caption = data['Meta Data']['2. Symbol'] + " | Last Refreshed: " + data['Meta Data']['3. Last Refreshed'];
+            $('.dataTerminal').empty();
+            $('<p>').text("Data for " + caption).addClass('text-light text-center').css('border-bottom','1px solid #FFF').appendTo('.dataTerminal');
+
+            const table = $('<table>').appendTo('.dataTerminal');
+            const thead = $('<thead>').appendTo(table);
+            const headerRow = $('<tr>').appendTo(thead).addClass('sticky');
+            $('<th>').text('Date').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Open').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Low').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('High').appendTo(headerRow).addClass('text-white');
+            $('<th>').text('Close').appendTo(headerRow).addClass('text-white');
+
+            const tbody = $('<tbody>').appendTo(table);
+
+            for (const date in timeSeries) {
+                const rowData = timeSeries[date];
+                const row = $('<tr>').appendTo(tbody);
+                $('<td>').text(date.substring(2,16)).appendTo(row).addClass('text-white');
+                $('<td>').text("$"+rowData['1. open']).appendTo(row);
+                $('<td>').text("$"+rowData['2. high']).appendTo(row);
+                $('<td>').text("$"+rowData['3. low']).appendTo(row);
+                $('<td>').text("$"+rowData['4. close']).appendTo(row);
+            }
+        },
+        function(err) {
+            console.log(err);
+        }
+    );
+}
+
+function getTimeType() {
+    $('.nav-link').on('click', function() {
+        const clicked = $(this).data('time-type');
+        const value = $(this).text();
+        displayDaily(clicked, value);
+        switch (value) {
+            case 'Daily':
+                time = 'Time Series (' + value + ')';
+                displayDaily(clicked, time);
+                break;
+            case 'Weekly':
+                time = value + ' Time Series';
+                displayDaily(clicked, time);
+                break;
+            case 'Monthly':
+                time = value + ' Time Series';
+                displayDaily(clicked, time);
+                break;
+            default:
+                break;
+        }
+    });
 }
 
 function getData() {
