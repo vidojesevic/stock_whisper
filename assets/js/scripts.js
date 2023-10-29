@@ -77,14 +77,13 @@ function displayGraph(data) {
         $('<td>').text("$"+rowData['3. low']).appendTo(row);
         $('<td>').text("$"+rowData['4. close']).appendTo(row);
     }
+    makeChart2(data, 'Time Series (5min)');
 }
 
 function getGlobals() {
-    console.log("Get globals");
     ajaxCallBack("utilities/global_scraper.php",
         function(data) {
             const global = data.markets;
-            // console.log(global);
             const table = $('<table>').appendTo('#marketData').addClass('table table-striped table-dark bg-dark').css('font-size','1em');
             $('<caption>').text('Global Market').appendTo(table).addClass('text-light fw-bolder text-center').css('caption-side','top');
             const thead = $('<thead>').appendTo(table).addClass('text-white');
@@ -113,7 +112,6 @@ function getGlobals() {
 }
 
 function displayData(path, time) {
-    console.log(time)
     ajaxCallBack(path,
         function(data) {
             const timeSeries = data[time];
@@ -171,7 +169,8 @@ function makeChart2(data, time) {
                     {
                         label: 'Volumes for ' + caption,
                         data: volumes,
-                        borderColor: '#197941'
+                        borderColor: '#197941',
+                        color: "#FFF"
                     }
                 ]
             }
@@ -200,13 +199,38 @@ function getTimeType() {
                 break;
         }
     });
+    $('.dropdown-item').on('click', function() {
+        const clicked = $(this).data('path');
+        console.log(clicked)
+        const value = $(this).text();
+        console.log(value)
+        switch (value) {
+            case '15':
+                time = 'Time Series (' + value + 'min)';
+                console.log(time)
+                displayData(clicked, time);
+                break;
+            case '30':
+                time = 'Time Series (' + value + 'min)';
+                console.log(time)
+                displayData(clicked, time);
+                break;
+            case '60':
+                time = 'Time Series (' + value + 'min)';
+                console.log(time)
+                displayData(clicked, time);
+                break;
+            default:
+                break;
+        }
+    });
 }
 
 function getData() {
     ajaxCallBack("utilities/scraper.php", 
         function(data) {
             displayGraph(data);
-            makeChart(data);
+            // makeChart(data);
         }, 
         function(error) {
             console.log("Error " + error);

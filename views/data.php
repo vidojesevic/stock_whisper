@@ -17,14 +17,18 @@
             <div class="filters bg-dark text-light border border-light rounded" id="navbarColor">
                 <ul class="navbar-nav px-2">
                     <li class="nav-item">
-                        <div class='dropdown'>
-                            <a class='nav-link dropdown-toggle' href='#' role='button' id='minutesDropdown' data-bs-toggle='dropdown' data-bs-target='dropminutes' aria-expanded='false'>Minutes</a>
-                            <ul class="dropdown-menu border-light bg-dark" id='dropminutes' aria-labelledby="minutesDropdown">
-                                <li><a class="dropdown-item text-light" href="#">5</a></li>
-                                <li><a class="dropdown-item text-light" href="#">30</a></li>
-                                <li><a class="dropdown-item text-light" href="#">60</a></li>
-                            </ul>
-                        </div>
+                        <form action="" method="post" id="dropdownForm">
+                            <div class='dropdown'>
+                                <a class='nav-link dropdown-toggle' href='#' role='button' id='minutesDropdown' data-bs-toggle='dropdown' data-bs-target='dropminutes' aria-expanded='false'>Minutes</a>
+                                <ul class="dropdown-menu border-light bg-dark" id='dropminutes' aria-labelledby="minutesDropdown">
+                                    <li><a class="dropdown-item text-light" href="#data" name='minutes' data-path='utilities/minutes_scraper.php' data-value='15'>15</a></li>
+                                    <li><a class="dropdown-item text-light" href="#data" name='minutes' data-path='utilities/minutes_scraper.php' data-value='30'>30</a></li>
+                                    <li><a class="dropdown-item text-light" href="#data" name='minutes' data-path='utilities/minutes_scraper.php' data-value='60'>60</a></li>
+                                </ul>
+                            </div>
+                            <input type="hidden" name="selectedValue" id="selectedValue" value="">
+                            <button type="submit" style="display: none;"></button>
+                        </form>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#data" data-time-type="utilities/daily_scraper.php">Daily</a> </li>                
                     <li class="nav-item"><a class="nav-link" href="#data" data-time-type="utilities/weekly_scraper.php">Weekly</a> </li>
@@ -34,7 +38,7 @@
         </div>
         <div class='col-lg-8 col-sm-12 dataTerminal mb-3 bg-dark text-success border rounded'></div>
         <!-- </div> -->
-        <div class='col-12 px-0 chart-div'>
+        <div class='col-12 px-0 pb-4 chart-div'>
             <canvas id='chart' class='mb-3 bg-dark text-success border rounded'></canvas>
         </div>
     </div>

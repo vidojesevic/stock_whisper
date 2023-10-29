@@ -14,8 +14,8 @@ p {
     z-index: 1000;
 }
 .cover {
-    min-height: 15em; 
-    background-image: url('../images/pexels-pixabay-210607.jpg');
+    min-height: 20em; 
+    background-image: url('../images/business.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,27 +24,19 @@ p {
     background-attachment: fixed;
 }
 .cover h1 {
-    text-shadow: 3px 3px 0px rgba(255,255,255,0.5);
+    text-shadow: 0.125em 0.125em 0em rgba(33,37,41,0.8);
 }
 .searches {
-    /* width: 33%; */
-    min-height: 10em;
+    min-height: 14em;
 }
 .globalData {
     font-size: 0.85em;
-}
-.dataGlobal th, .dataGlobal td {
-    white-space: nowrap;
-}
-.globalData td {
-    color: #FFFFFF;
 }
 .globalData tr:hover {
     background: var(--bs-secondary) !important;
 }
 .dataTerminal {
-    min-height: 14em;
-    /* width: 66%; */
+    min-height: 13em;
     overflow-y: auto;
 }
 .dataTerminal p {
@@ -62,7 +54,7 @@ p {
     border-radius: 1em;
     display: flex;
     overflow: auto;
-    font-size: 1.2em;
+    font-size: 1.15em;
 }
 .dataTerminal thead {
     background: #212529;
@@ -122,8 +114,4 @@ canvas {
 }
 .dropdown-item:hover {
     color: #212529;
-}
-.searchTable {
-    display: flex;
-    justify-content: space-between;
 }
