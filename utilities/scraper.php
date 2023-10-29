@@ -6,8 +6,8 @@ $company = ['IBM' => 'IBM', 'AAPL' => 'Apple INC', 'MSFT' => 'Microsoft Corp'];
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-$comp = 'MSFT';
-$name = 'Microsoft Corp';
+// $comp = 'MSFT';
+// $name = 'Microsoft Corp';
 $time = 30;
 
 // foreach ($company as $comp => $name) {

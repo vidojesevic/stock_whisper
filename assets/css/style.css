@@ -22,20 +22,32 @@ p {
     text-shadow: 3px 3px 0px rgba(255,255,255,0.5);
 }
 .searches {
+    width: 33%;
     min-height: 10em;
+}
+.globalData {
+    font-size: 0.85em;
 }
 .dataGlobal th, .dataGlobal td {
     white-space: nowrap;
 }
-.dataGlobal td {
+.globalData td {
     color: #FFFFFF;
+}
+.globalData tr:hover {
+    background: var(--bs-secondary) !important;
 }
 .dataTerminal {
     min-height: 14em;
+    width: 66%;
     overflow-y: auto;
+}
+.dataTerminal p {
+    margin: 0 auto;
 }
 .dataTerminal table {
     padding-top: 0.8em;
+    padding: 0;
     width: 100%;
     border-collapse: collapse;
     border-radius: 1em;
@@ -66,7 +78,6 @@ p {
     border-right: 1px solid #FFFFFF;
 }
 table::-webkit-scrollbar {
-    /* background: #212529; */
     background: #6c757d;
     border-radius: 0.4em;
 }
@@ -82,13 +93,24 @@ table::-webkit-scrollbar-thumb:active {
 }
 .filters {
     display: block;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 canvas {
     padding-top: 1em;
 }
-#dropMinutes a:hover {
-    background: #6C757D;
+.dropdown-menu {
+    z-index: 999;
+}
+.dropdown-item:hover {
+    color: var(--bs-dark) !important;
+    font-weight: bolder;
+}
+.dropdown-item:active {
+    color: var(--bs-light) !important;
+    background: var(--bs-secondary) !important;
+}
+.dropdown-item:hover {
+    color: #212529;
 }
 .searchTable {
     display: flex;

@@ -4,7 +4,7 @@
     <div class='row d-flex justify-between'>
         <!-- <h2 class='text-light text-center'>Company data</h2> -->
         <br/><hr class='text-light'/><br/>
-        <div class='searchTable d-flex justify-content-between'>
+        <div class='searchTable col-12 d-flex px-0 justify-content-between'>
             <div class='col-4 searches'>
                 <form action='' method='post' class=''>
                     <div class="input-group rounded pb-2">
