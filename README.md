@@ -7,6 +7,10 @@ is for IBM only, but if you want to check other company, you need to create your
 API key on [alphavantage.co](https://www.alphavantage.co/support/#api-key).
 
 ## Dependencies
-App use Bootstrap 5, jQuery and Chart.js on Front End for representing data, and
-php on Back End for fetching data from source.
+This application utilizes a modern technology stack, including Bootstrap 5, jQuery, 
+and Chart.js on the front-end to create a responsive and visually appealing user 
+interface. On the back-end, PHP is employed to efficiently fetch and process 
+data from various sources, ensuring a seamless and dynamic user experience.
+
+## Usage
 
