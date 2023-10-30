@@ -13,11 +13,12 @@
                 Data that is represented is for IBM only, but if you want to 
                 check other company, you need to create your API key <a href='https://www.alphavantage.co/support/#api-key' class='text-dark'>here</a>.
             </p>
-            <div class='col-4 mx-auto text-light pt-3 text-center pb-5'>
-                <form actiopn='' method='post' class='form'>
+            <div class='col-10 col-md-6 col-sm-8 mx-auto text-light pt-3 text-center pb-5'>
+                <form action='' method='post' class='form'>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="apiKey" placeholder="Enter your API key">
+                        <input type="text" class="form-control" id="apiKey" name='apikey' placeholder="Enter your API key">
                     </div>
+                    <button type="submit" class="btn btn-primary" name='apikeysub' style='display: none;'>Submit</button>
                 </form>
             </div>
         </div>

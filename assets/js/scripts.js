@@ -22,35 +22,6 @@ function logoAnimate() {
        });
 }
 
-function makeChart(data) {
-    const timeSeries = data['Time Series (5min)'];
-    // const timeSeries = data['Time Series (30min)'];
-    const caption = data['Meta Data']['2. Symbol'];
-    const volumes = [];
-    const labels = [];
-    for (const time in timeSeries) {
-        const dataPoint = timeSeries[time];
-        labels.push(time);
-        volumes.push(dataPoint['5. volume']);
-    }
-    new Chart(
-        document.getElementById('chart'),
-        {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Volumes for ' + caption,
-                        data: volumes,
-                        borderColor: '#197941'
-                    }
-                ]
-            }
-        }
-    );
-}
-
 function displayGraph(data) {
     // const timeSeries = data['Time Series (30min)'];
     const timeSeries = data['Time Series (5min)']; // for testing
@@ -77,14 +48,14 @@ function displayGraph(data) {
         $('<td>').text("$"+rowData['3. low']).appendTo(row);
         $('<td>').text("$"+rowData['4. close']).appendTo(row);
     }
-    makeChart2(data, 'Time Series (5min)');
+    makeGraph(data, 'Time Series (5min)');
 }
 
 function getGlobals() {
     ajaxCallBack("utilities/global_scraper.php",
         function(data) {
             const global = data.markets;
-            const table = $('<table>').appendTo('#marketData').addClass('table table-striped table-dark bg-dark').css('font-size','1em');
+            const table = $('<table>').appendTo('#marketData').addClass('table table-striped table-dark bg-dark col-lg-12 col-md-12 col-sm-10 col-xs-10').css('font-size','1em');
             $('<caption>').text('Global Market').appendTo(table).addClass('text-light fw-bolder text-center').css('caption-side','top');
             const thead = $('<thead>').appendTo(table).addClass('text-white');
             const headerRow = $('<tr>').appendTo(thead).addClass('fw-bolder');
@@ -130,6 +101,7 @@ function displayData(path, time) {
 
             const tbody = $('<tbody>').appendTo(table);
 
+            prev = null;
             for (const date in timeSeries) {
                 const rowData = timeSeries[date];
                 const row = $('<tr>').appendTo(tbody);
@@ -141,7 +113,7 @@ function displayData(path, time) {
             }
             $('.chart-div').empty();
             $('<canvas id="chart">').addClass('mb-3 bg-dark text-success border rounder').appendTo('.chart-div');
-            makeChart2(data, time)
+            makeGraph(data, time)
         },
         function(err) {
             console.log(err);
@@ -149,7 +121,7 @@ function displayData(path, time) {
     );
 }
 
-function makeChart2(data, time) {
+function makeGraph(data, time) {
     const timeSeries = data[time];
     const caption = data['Meta Data']['2. Symbol'];
     const volumes = [];

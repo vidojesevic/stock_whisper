@@ -5,7 +5,7 @@
         <!-- <h2 class='text-light text-center'>Company data</h2> -->
         <br/><hr class='text-light'/><br/>
         <!-- <div class='searchTable col-12 d-flex px-0 justify-content-between'> -->
-        <div class='col-lg-4 col-md-12 px-3 pb-2 px-0 col-sm-12 searches'>
+        <div class='col-lg-4 col-md-12 px-3 pb-3 px-0 col-sm-12 searches'>
             <form action='' method='post'>
                 <div class="input-group rounded d-flex pb-2">
                     <input type="search" class="form-control text-light bg-dark search-comp rounded" name='comp' placeholder="Search for company" aria-label="Search" aria-describedby="search-addon" />

@@ -1,3 +1,11 @@
+@media (max-width: 766px) {
+    #marketData table {
+        font-size: 0.5em !important;
+    }
+    .dataTerminal {
+        font-size: 0.8em !important;
+    }
+}
 a {
     text-decoration: none;
 }
