@@ -1,5 +1,5 @@
 <?php
-$key = "K3NZ87N8SI74FZNA"; 
+// $key = "K3NZ87N8SI74FZNA"; 
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');

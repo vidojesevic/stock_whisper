@@ -14,7 +14,7 @@
                 check other company, you need to create your API key <a href='https://www.alphavantage.co/support/#api-key' class='text-dark'>here</a>.
             </p>
             <div class='col-10 col-md-6 col-sm-8 mx-auto text-light pt-3 text-center pb-5'>
-                <form action='' method='post' class='form'>
+                <form method='post' class='form'>
                     <div class="form-group">
                         <input type="text" class="form-control" id="apiKey" name='apikey' placeholder="Enter your API key">
                     </div>

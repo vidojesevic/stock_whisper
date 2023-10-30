@@ -24,6 +24,7 @@ p {
 .cover {
     min-height: 20em; 
     background-image: url('../images/business.jpg');
+    /* background-image: linear-gradient(176deg, #22313F 70%, #F4F4F4 calc(70% + 2px)),url('../images/business.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -122,4 +123,7 @@ canvas {
 }
 .dropdown-item:hover {
     color: #212529;
+}
+.toggler-custom {
+    color: #FFF;
 }

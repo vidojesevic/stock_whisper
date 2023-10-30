@@ -4,6 +4,7 @@ $(document).ready(function() {
     getGlobals();
     getData();
     getTimeType();
+    companyOverview();
 })
 
 function logoAnimate() {
@@ -141,10 +142,25 @@ function makeGraph(data, time) {
                     {
                         label: 'Volumes for ' + caption,
                         data: volumes,
+                        color: "#FFFFFF",
                         borderColor: '#197941',
-                        color: "#FFF"
+                        // borderColor: '#FFFFFF',
                     }
                 ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        grid: {
+                            color: '#6c757d'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: '#6c757d'
+                        }
+                    }
+                }
             }
         }
     );
@@ -198,11 +214,21 @@ function getTimeType() {
     });
 }
 
+function companyOverview() {
+    ajaxCallBack("utilities/testing.php",
+        function(data) {
+            console.log(data);
+        },
+        function(err) {
+            console.log(err)
+        }
+    );
+}
+
 function getData() {
     ajaxCallBack("utilities/scraper.php", 
         function(data) {
             displayGraph(data);
-            // makeChart(data);
         }, 
         function(error) {
             console.log("Error " + error);

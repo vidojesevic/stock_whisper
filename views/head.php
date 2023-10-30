@@ -3,13 +3,13 @@
     <head>
         <title>Stock Whisper</title>
         <meta name="description" content="This is web scraping Stock Market App">
-        <meta name="keywords" content="Stock, Market, Web Scraper, Company, ">
+        <meta name="keywords" content="Stock, Market, Web Scraper, Company, Financial, Data, Money">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- For Social Media -->
-        <meta property="og:title" content="Your Title Here">
-        <meta property="og:description" content="Your description here">
-        <meta property="og:image" content="https://www.example.com/image.jpg">
-        <meta property="og:url" content="https://www.example.com">
+        <meta property="og:title" content="Stock Whisper">
+        <meta property="og:description" content="Stock Whisper is web scraping app that fetch real time and historical financial market data from alphavantage.co through API. Data that is represented is for IBM only, but if you want to check other company, you need to create your API key on alphavantage.co">
+        <meta property="og:image" content="https://www.stock-whisper.xyz/favicon.ico">
+        <meta property="og:url" content="https://www.stock-whisper.xyz/">
         <meta property="og:type" content="website">
 
         <!-- <link rel="icon" type="image/x-icon" href=".ico"> -->
