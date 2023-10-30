@@ -8,8 +8,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
 
 switch ($page) {
     default:
-    // $home = new HomeController();
-    // $home->index();
     require_once "views/navbar.php";
     require_once "views/cover.php";
     require_once "views/global.php";
@@ -17,8 +15,6 @@ switch ($page) {
     require_once "views/about.php";
     require_once "views/footer.php";
     break;
-    // http_response_code(404);
-    // include '../resources/views/layouts/404.php';
 }
 
 
