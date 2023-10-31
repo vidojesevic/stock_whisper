@@ -6,10 +6,30 @@
  */
 function getApi(): string
 {
-    if (!isset($_POST['apikeysub']) && empty($_POST['apikey'])) {
-        $key = 'demo';
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['key']) && !empty($_POST['key'])) {
+            $key = $_POST['key'];
+            return $key;
+        }
     } else {
-        $key = $_POST['apikey'];
+        $key = 'demo';
+        return $key;
     }
-    return $key;
+}
+
+/**
+ * getCompany function
+ *
+ * return string
+ */
+function getCompany(): string
+{
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['company']) && !empty($_POST['company'])) {
+            $company = $_POST['company'];
+            return $company;
+        }
+    }
+    $company = 'IBM';
+    return $company;
 }

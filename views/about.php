@@ -14,11 +14,11 @@
                 check other company, you need to create your API key <a href='https://www.alphavantage.co/support/#api-key' class='text-dark'>here</a>.
             </p>
             <div class='col-10 col-md-6 col-sm-8 mx-auto text-light pt-3 text-center pb-5'>
-                <form method='post' class='form'>
+                <form method='post' class='form' id='formapi'>
                     <div class="form-group">
                         <input type="text" class="form-control" id="apiKey" name='apikey' placeholder="Enter your API key">
                     </div>
-                    <button type="submit" class="btn btn-primary" name='apikeysub' style='display: none;'>Submit</button>
+                    <button type="submit" id="getapi" class="btn btn-primary" name='apikeysub' style='display: none;'>Submit</button>
                 </form>
             </div>
         </div>

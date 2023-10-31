@@ -4,7 +4,9 @@ $(document).ready(function() {
     getGlobals();
     getData();
     getTimeType();
-    companyOverview();
+    // companyOverview();
+    getAPI();
+    searchCompany();
 })
 
 function logoAnimate() {
@@ -84,6 +86,8 @@ function getGlobals() {
 }
 
 function displayData(path, time) {
+    // console.log(time);
+    // console.log(path)
     ajaxCallBack(path,
         function(data) {
             const timeSeries = data[time];
@@ -142,9 +146,7 @@ function makeGraph(data, time) {
                     {
                         label: 'Volumes for ' + caption,
                         data: volumes,
-                        color: "#FFFFFF",
                         borderColor: '#197941',
-                        // borderColor: '#FFFFFF',
                     }
                 ]
             },
@@ -214,15 +216,81 @@ function getTimeType() {
     });
 }
 
-function companyOverview() {
-    ajaxCallBack("utilities/testing.php",
-        function(data) {
-            console.log(data);
-        },
-        function(err) {
-            console.log(err)
-        }
-    );
+// function companyOverview() {
+//     ajaxCallBack(null, "utilities/testing.php",
+//         function(data) {
+//             console.log(data);
+//         },
+//         function(err) {
+//             console.log(err)
+//         }
+//     );
+// }
+
+function getAPI() {
+    $('#formapi').on('submit', function(event) {
+        event.preventDefault();
+        const api = $('#apiKey').val();
+        $(this).trigger('reset');
+
+        const API = {
+            'key': api
+        };
+
+        // alert("Your API key is " + data['key']);
+        console.log("Your API key is " + API['key']);
+
+        $.ajax({
+            url: "utilities/helper.php",
+            method: "POST",
+            data: API,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+        // ajaxCallBack('utilities/helper.php',
+        //     function(data) {
+        //         console.log(data);
+        //     },
+        //     function(err) {
+        //         console.log(err);
+        //     }
+        // );
+    })
+}
+
+function searchCompany() {
+    $('#searchForm').on('submit', function(event) {
+        event.preventDefault();
+        const company = $('#search').val();
+        $(this).trigger('reset');
+
+        const comp = {
+            'company': company
+        };
+
+        console.log("Your company is " + comp['company']);
+
+        $.ajax({
+            url: "utilities/helper.php",
+            method: "POST",
+            data: comp,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                console.log(data);
+                displayData('utilities/scraper.php', 'Time Series (5min)');
+            },
+            error: function(xhr) {
+                console.log(xhr);
+            }
+        })
+    })
 }
 
 function getData() {
@@ -234,6 +302,23 @@ function getData() {
             console.log("Error " + error);
         });
 }
+
+// function ajaxSend(data, url, successFunction, errorFunction) {
+//     $.ajax({
+//         url: url,
+//         method: 'GET',
+//         CORS: true,
+//         contentType: false,
+//         processData: false,
+//         dataType: 'json',
+//         success: successFunction(data),
+//         error: errorFunction,
+//         headers: {
+//             "accept": "application/json",
+//             'Access-Control-Allow-Origin': '*',
+//         },
+//     });
+// }
 
 function ajaxCallBack(url, successFunction, errorFunction) {
     $.ajax({
