@@ -7,6 +7,7 @@ $(document).ready(function() {
     // companyOverview();
     getAPI();
     searchCompany();
+    registrationToggle()
 })
 
 function logoAnimate() {
@@ -117,7 +118,7 @@ function displayData(path, time) {
                 $('<td>').text("$"+rowData['4. close']).appendTo(row);
             }
             $('.chart-div').empty();
-            $('<canvas id="chart">').addClass('mb-3 bg-dark text-success border rounder').appendTo('.chart-div');
+            $('<canvas id="chart">').addClass('mb-3 bg-dark text-success border rounded').appendTo('.chart-div');
             makeGraph(data, time)
         },
         function(err) {
@@ -236,8 +237,6 @@ function getAPI() {
         const API = {
             'key': api
         };
-
-        // alert("Your API key is " + data['key']);
         console.log("Your API key is " + API['key']);
 
         $.ajax({
@@ -253,14 +252,6 @@ function getAPI() {
                 console.log(err);
             }
         });
-        // ajaxCallBack('utilities/helper.php',
-        //     function(data) {
-        //         console.log(data);
-        //     },
-        //     function(err) {
-        //         console.log(err);
-        //     }
-        // );
     })
 }
 
@@ -290,6 +281,21 @@ function searchCompany() {
                 console.log(xhr);
             }
         })
+    })
+}
+
+function registrationToggle() {
+    const logToggler = $(".longin");
+    logToggler.on('click', function() {
+        const href = $(this).find("a").attr("href")
+        const targetTab = $(href)
+        const a = $(this).find("a")
+        $(".longin").find("a").removeClass("bg-dark")
+        a.addClass("bg-dark")
+
+        $(".tab-pane").removeClass("show active")
+
+        targetTab.addClass("show active")
     })
 }
 

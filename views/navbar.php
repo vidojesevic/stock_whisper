@@ -17,6 +17,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-light fw-bold" href="#about">About</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light fw-bold" href="index.php?page=login">Login</a>
+                        </li>
                         <!-- <li class="nav-item"> -->
                         <!--     <a class="nav-link text-light fw-bold" href="utilities/testing.php">Testing</a> -->
                         <!-- </li> -->
@@ -26,3 +29,4 @@
         </div>
     </div>
 </nav>
+<br/>
